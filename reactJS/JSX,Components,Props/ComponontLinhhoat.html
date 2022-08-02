@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script> -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> -->
+    <script crossorigin src="https://unpkg.com/react@18.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- BABLE để chuyển đổi -->
+    <script type="text/babel">
+        const From={
+            Input(){
+                return(
+                    <input />
+                )
+            },
+            CheckBox(){
+                return (
+                    <input type="checkbox" />
+                )
+            }
+        }
+        const Button=({title,href,onClicke})=>{
+            let Component='button'
+            let props={}
+            if(href){
+                console.log(href)
+                Component='a'
+                props.href=href
+            }
+            if(onClicke){
+                props.onClick=onClicke
+            }
+            return (
+                <Component {...props}>{title}</Component>
+            )
+        }
+        function App() {
+            const type= 'Input'
+            const Component= From[type]
+           return(
+                // <Component/>
+                <Button 
+                    title='click me'
+                    href='http://localhost:8080/api/click'
+                    onClicke={()=> alert('click me')}
+                />
+           )
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />)
+        console.log(App());
+            // ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+
+</body>
+
+</html>

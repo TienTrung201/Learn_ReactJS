@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // là ta định nghĩa lại cho nó
+        var array =['mot','hai','ba']
+        var [a,b,c]=array
+        console.log(a,b,c)
+        var [a, ...rest]=array
+        console.log(rest)//mảng b c
+        //đối với object thì tương tự
+        var course={
+            name: 'java',
+            price: 1000,
+            image: 'image',
+            children: {
+                name:'reactive',
+            }
+        }
+        var {name,...newObject}=course//tạo ra object mới k có name
+        var {name: replaceName, children:{name}}=course
+        console.log(course)
+        function logger({ name, price, ...rest}) {
+            console.log(name);
+            console.log(rest);
+        }
+        logger({
+            name: 'Javascript',
+            price: 1000,
+            description: 'Description content'
+        });
+        
+    </script>
+</body>
+</html>

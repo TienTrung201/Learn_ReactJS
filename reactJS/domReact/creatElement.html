@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script> -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> -->
+    <script crossorigin src="https://unpkg.com/react@18.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.production.min.js"></script> 
+ 
+</head>
+<body>
+    <div id="root"></div>
+    <!-- 1.document.createElement()
+    2. document.body.appendChild()
+    3. console.dir()
+    4. innerText, id, className, style -->
+    
+    <script>
+        // tạo ul>li*2
+
+        // DOM
+        const ulDOM = document.createElement('ul')
+        const liDOM1 = document.createElement('li')
+        liDOM1.innerText = 'Javascript'
+        const LiDOM2= document.createElement('li')
+        LiDOM2.innerText = 'ReactJS'
+        ulDOM.appendChild(LiDOM2)
+        ulDOM.appendChild(liDOM1)
+        // document.body.appendChild(ulDOM)
+        
+        //react
+        const ulReact = React.createElement(
+            'ul',
+            {
+                id: 'ulReact',
+                 class:'font-size:100px',
+            },
+            
+            React.createElement('li',null,'javascript'),
+            React.createElement('li',null,'ReactJS'),
+        )
+        
+
+        // console.log(ulReact)
+        // // get root element phiên bản 17
+        // const root= document.querySelector('#root')
+        // console.log()
+        // //React-Dom ->render UI
+        // ReactDOM.render(ulReact,root)
+
+        // phiên bản 18
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(ulReact);
+    </script>
+
+</body>
+</html>

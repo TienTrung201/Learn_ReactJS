@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script> -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> -->
+    <script crossorigin src="https://unpkg.com/react@18.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.production.min.js"></script> 
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>   
+</head>
+<body>
+    <div id="root"></div>
+ <!-- BABLE để chuyển đổi -->
+    <script type="text/babel">
+        // tạo ul>li*2
+
+        // DOM
+        
+        // const ulReact= <ul>
+        //         <li style={{color:'red'}} >javascript</li>
+        //         <li>react</li>
+        //     </ul>
+        const courses=[
+            { name:'javascript'},
+            {name:'reactJs'}
+        ]
+        const ulReact= (
+            // lỗi khi k đưuọc gói hai khối một lúc
+            <React.Fragment>
+                <ul>
+                    {courses.map(courseeName =><li>{courseeName.name}</li> )}
+                </ul>
+                <ul>
+                    {courses.map(courseeName =><li>{courseeName.name}</li> )}
+                </ul>
+                <ul>
+                    {courses.map(courseeName =><li>{courseeName.name}</li> )}
+                </ul>
+            </React.Fragment>
+            
+            )
+            
+
+        console.log(ulReact)
+        // get root element phiên bản 17
+        const root= document.querySelector('#root')
+        // console.log()
+        // //React-Dom ->render UI
+        // ReactDOM.render(ulReact,root)
+        ReactDOM.render(ulReact,root)
+
+
+    </script>
+
+</body>
+</html>

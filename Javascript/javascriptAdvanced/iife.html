@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+            function createApp () {
+                const cars = []
+                return {
+                    get(index) {
+                        return cars[index];
+                    },
+                    add(car) {
+                        cars.push(car)
+                    },
+                    edit(index, car) {
+                        cars[index] = car;
+                    }
+
+                }
+            }
+            const app=createApp();
+            app.add("bmww")
+            console.log(app.get(0));
+        ////------------------------------------
+        function makeCouter() {
+            let counter = 0;
+            function increase() {
+                return ++counter;
+            }
+            console.log(counter);//1
+            return increase;
+        }
+        const increase1 = makeCouter()
+        console.log(increase1());//1
+        console.log(increase1());//2
+        console.log(increase1());//3
+
+    </script>
+</body>
+
+</html>

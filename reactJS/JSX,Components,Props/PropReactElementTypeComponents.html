@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+    <!-- <script crossorigin src="https://unpkg.com/react@18.0.0/umd/react.production.min.js"></script> -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.production.min.js"></script> -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- BABLE để chuyển đổi -->
+    <script type="text/babel">
+        function PostItem(
+            {img,
+            alt,
+            title,
+            desc,
+            publi,
+            //callBack không bị lỗi nếu không có gì thì không làm gì
+        callBack=() =>{}}
+        ) {
+            callBack()
+            return (
+                //react element
+                <div className="post-item">
+                    <img src={img} alt={alt} />
+                    <h2 className="Post-title">{title}</h2>
+                    <p className="Post-desc">{desc}</p>
+                    <p className="post-published">{publi}</p>
+                </div>
+            )
+
+        }
+        //app.js
+        // components
+        function App() {
+            return (
+                //react components
+                <div className="postList" >
+                    <PostItem
+                        img="https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615ddae5c5b7d.jpg"
+                        alt="học lập trình"
+                        title="Javascript tự học lập trình"
+                        desc="học sao cho giỏi giờ"
+                        publi="cách học javascript hiệu quả"
+                        callBack={()=>{}}
+                    />
+                    <PostItem
+                        img="https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615ddae5c5b7d.jpg"
+                        alt="2học lập trình"
+                        title="2Javascript tự học lập trình"
+                        desc="2học sao cho giỏi giờ"
+                        publi="2cách học javascript hiệu quả"
+                    />
+                    <PostItem
+                        img="https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615ddae5c5b7d.jpg"
+                        alt="3học lập trình"
+                        title="3Javascript tự học lập trình"
+                        desc="3học sao cho giỏi giờ"
+                        publi="3cách học javascript hiệu quả"
+                    />
+
+                </div  >
+            )
+        }
+        console.log(App)
+        //index.js
+        // const root = ReactDOM.createRoot(document.getElementById('root'));
+        // root.render(<App />)
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+
+</body>
+
+</html>
