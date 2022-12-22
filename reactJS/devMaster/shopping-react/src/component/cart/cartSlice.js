@@ -13,18 +13,17 @@ const initialState = [
 
 ]
 inittalCard = initialState
-let checkStoreage = true
 export const cartSlice = createSlice({
     name: "cartSlice",
     initialState: inittalCard,
     reducers: {
         buyProduct: (state, action) => {
             const check = state.some((cart) => {
-                return cart.name == action.payload.name
+                return cart.name === action.payload.name
             })
             if (check) {
                 state.forEach(element => {
-                    if (element.name == action.payload.name) {
+                    if (element.name === action.payload.name) {
                         element.quantity = parseInt(action.payload.quantity) + parseInt(element.quantity)
                     }
                 });
@@ -39,7 +38,7 @@ export const cartSlice = createSlice({
         },
         changeQuantityName: (state, action)=>{
             state.forEach(element => {
-                if (element.name == action.payload.name) {
+                if (element.name === action.payload.name) {
                     element.quantity = parseInt(action.payload.value)
                 }
             });

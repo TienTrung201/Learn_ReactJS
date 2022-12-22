@@ -1,7 +1,7 @@
 
 // import { cartTotal } from "../redux/selector"
-import { listProduct, listCartLocal,cartTotal } from "../redux/selector"
-import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { listCartLocal,cartTotal } from "../redux/selector"
+import {  useSelector } from 'react-redux/es/exports';
 
 const YourTotals = () => {
     const listCart= useSelector(listCartLocal)
@@ -15,10 +15,10 @@ const YourTotals = () => {
         </tr>
             <tr>
             <td colSpan={4}>
-                There are <b>5</b> items in your shopping cart.
+                Total
             </td>
             <td colSpan={2} className="total-price text-left">
-                {listCart.length==0?0:total}
+                {listCart.length===0?0:total}
             </td>
         </tr>
         </>

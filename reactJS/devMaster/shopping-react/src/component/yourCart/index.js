@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { listProduct, listCartLocal } from "../redux/selector"
+import {  listCartLocal } from "../redux/selector"
 import { cartSlice } from "../cart/cartSlice"
 import { cartTotalSlice } from "../totalCart/cartTotalSlice"
 import { useEffect } from "react"
@@ -11,7 +11,7 @@ const YourCart = ({ ...props }) => {
       Dispatch(cartTotalSlice.actions.updateTotal(listCarts))
     }
 
-  }, [listCarts])
+  }, [listCarts,Dispatch])
 
   // console.log(useSelector(listProduct))
   const totalCart = props.price * props.quantity
@@ -22,15 +22,15 @@ const YourCart = ({ ...props }) => {
     // Dispatch(totalSlice.actions.replaceQuantityYourCart(e.target))
     Dispatch(cartSlice.actions.changeQuantityName(e.target))
   }
-  const handleUpdateTotal = (e) => {
-    Dispatch(cartTotalSlice.actions.updateTotal(listCarts))
-  }
-  const obActionCard = (e) => {
-    return {
-      quantity: e.target.value,
-      price: props.price
-    }
-  }
+  // const handleUpdateTotal = (e) => {
+  //   Dispatch(cartTotalSlice.actions.updateTotal(listCarts))
+  // }
+  // const obActionCard = (e) => {
+  //   return {
+  //     quantity: e.target.value,
+  //     price: props.price
+  //   }
+  // }
   return (
     <tr>
       <th scope="row">{props.index}</th>
@@ -54,14 +54,14 @@ const YourCart = ({ ...props }) => {
       <td>
         <a
           className="label label-info update-cart-item"
-          href="#"
+          href="/"
           data-product=""
         >
           Update
         </a>
         <a
           className="label label-danger delete-cart-item"
-          href="#"
+          href="/"
           data-product=""
           onClick={handleDeleteCart}
         >
